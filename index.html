@@ -195,6 +195,40 @@
                     </div>
                 </div>
             </section>
+            <!-- Photo Gallery -->
+            <div class="container px-5 pb-5">
+                <h3 class="fw-bold text-center mb-4">Photo Gallery</h3>
+                <div class="row gx-4 gy-4" id="photo-gallery">
+                    <!-- JS will insert images here -->
+                </div>
+            </div>
+            
+            <script>
+                // 自動載入 12 張圖片（檔名格式為 photo1.jpg ~ photo12.jpg）
+                const gallery = document.getElementById("photo-gallery");
+                for (let i = 1; i <= 12; i++) {
+                    const col = document.createElement("div");
+                    col.className = "col-6 col-md-4 col-lg-3";
+                    col.innerHTML = `
+                        <div class="gallery-item">
+                            <img src="assets/photo${i}.jpg" alt="photo${i}" class="img-fluid rounded shadow-sm">
+                        </div>
+                    `;
+                    gallery.appendChild(col);
+                }
+            </script>
+            
+            <!-- 加一點 hover 效果 -->
+            <style>
+            .gallery-item img {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .gallery-item img:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            }
+            </style>
+
         </main>
         <!-- Footer-->
         <footer class="bg-white py-4 mt-auto">
